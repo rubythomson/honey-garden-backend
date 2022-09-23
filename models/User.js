@@ -32,7 +32,10 @@ const userSchema = new mongoose.Schema({
     default: true 
   },
   readingList: [
-    { type: Schema.ObjectId, ref: 'Poem' }
+    {
+      poemId: { type: Schema.ObjectId, ref: 'Poem' },
+      status: { type: Boolean, default: "Ongoing", required: true }
+    }
   ]
 }, { timestamps: true })
 
@@ -50,7 +53,3 @@ const userModel = mongoose.model('User', userSchema)
 
 // export
 module.exports = userModel
-
-
-
-

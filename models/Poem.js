@@ -4,7 +4,7 @@ const Utils = require('./../utils')
 
 // schema
 const poemSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true
   },
@@ -13,11 +13,13 @@ const poemSchema = new mongoose.Schema({
   },
   views: {
     type: Number,
-    required: true
+    required: true,
+    default: 0
   },
   pages: {
     type: Number,
-    required: true
+    required: true,
+    default: 0
   },
   user: {
     type: Schema.Types.ObjectId,
@@ -28,11 +30,6 @@ const poemSchema = new mongoose.Schema({
     type: String,
     required: true    
   },
-  status: {
-    type: String,
-    required: true
-  }
-  
 }, { timestamps: true })
 
 
