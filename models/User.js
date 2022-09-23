@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
     default: true 
   },
   readingList: [
-    { type: Schema.ObjectId, ref: 'Reading List' }
+    { type: Schema.ObjectId, ref: 'Poem' }
   ]
 }, { timestamps: true })
 
