@@ -3,6 +3,7 @@ const router = express.Router()
 const Utils = require('./../utils')
 const User = require('./../models/User')
 const path = require('path')
+const poemModel = require('../models/Poem')
 
 // PUT - add readingList -----------------------------------------------------------------------------------------------
 router.put('/profile/', Utils.authenticateToken, (req, res) => {  
@@ -17,7 +18,7 @@ router.put('/profile/', Utils.authenticateToken, (req, res) => {
     _id: req.user._id
   }, {
     $push: {
-      readingList: req.body.poemId
+      readingList:  { poem: req.body.poemId, status: "Ongoing" }
     }
   })
     .then((user) => {            
@@ -41,8 +42,9 @@ router.get('/:id', Utils.authenticateToken, (req, res) => {
     })
   }
 
-  User.findById(req.params.id).populate('readingList')
-    .then(user => {
+  User.findById(req.params.id).populate({ path: "readingList.poem" })
+    .then(async user => {
+      console.log(user);
       res.json(user)
     })
     .catch(err => {

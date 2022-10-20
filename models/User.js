@@ -33,8 +33,8 @@ const userSchema = new mongoose.Schema({
   },
   readingList: [
     {
-      poemId: { type: Schema.ObjectId, ref: 'Poem' },
-      status: { type: Boolean, default: "Ongoing", required: true }
+      poem: { type: Schema.ObjectId, ref: 'Poem' },
+      status: { type: String, default: "Ongoing", required: true }
     }
   ]
 }, { timestamps: true })
