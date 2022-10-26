@@ -35,6 +35,10 @@ const userSchema = new mongoose.Schema({
     type: Number,   
     required: true 
   },
+  birthday: {
+    type: Number,   
+    required: false 
+  },
   newUser: {
     type: Boolean,   
     default: true 
