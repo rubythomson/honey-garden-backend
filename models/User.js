@@ -36,7 +36,15 @@ const userSchema = new mongoose.Schema({
     required: true 
   },
   birthday: {
-    type: Number,   
+    type: String,   
+    required: false 
+  },
+  pronouns: {
+    type: String,   
+    required: false 
+  },
+  location: {
+    type: String,   
     required: false 
   },
   newUser: {
